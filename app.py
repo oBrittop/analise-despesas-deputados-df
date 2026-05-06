@@ -80,8 +80,6 @@ df_despesas.to_csv("despesas_detalhadas_2024.csv", index=False)
 
 # Salva a tabela resumo com o ranking
 df_final.to_csv("ranking_resumo_2024.csv", index=False)
-
-
 #---Salvar NO Banco de Dados SQL----
 engine = create_engine('mysql+pymysql://root:sua_senha_aqui@localhost:3306/camara_df')
 
@@ -89,7 +87,6 @@ engine = create_engine('mysql+pymysql://root:sua_senha_aqui@localhost:3306/camar
 print("Salvando Tabela Fato (Despesas Detalhadas)...")
 df_despesas.to_sql('fato_despesas', con=engine, if_exists='replace', index=False)
 
-# 3. Envia a Tabela Dimensão (Cadastro dos Deputados)
 print("Salvando Tabela Dimensão (Cadastro dos Deputados)...")
 df_cadastro.to_sql('dim_deputados', con=engine, if_exists='replace', index=False)
 
